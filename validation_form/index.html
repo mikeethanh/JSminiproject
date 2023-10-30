@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAlidation_form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <form action="" method="POST" class = "form" id = "form-1">
+            <h3 class="heading">Thanh vien dang ki</h3>
+            <p class="desc">Cung nhau hoc lap trinh</p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="full-name" class="form-label">Ten day du</label>
+                <input type="text" name="full-name" id="full-name" placeholder="VD: Son Dang" class = "form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class = "form-label">Email</label>
+                <input type="text" name="email" id="email" placeholder="VD: email@gmail.com" class = "form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                <span class="form-message"></span>
+              </div>
+          
+              <div class="form-group">
+                <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+                <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                <span class="form-message"></span>
+              </div>
+          
+              <button class="form-submit">Đăng ký</button>
+        </form>
+    </div>
+
+    <script src = "validator.js"></script>
+
+    <script>
+        //validator la 1 doi tuong voi 2 key : 
+        Validator ({
+            form: '#form-1',
+            ErrorSelector: '.form-message',
+            //rules la 1 seletor gom 1 mang voi 2 ham ;
+            rules:[
+                Validator.isRequired('#full-name','vui long nhap ten day du cua ban'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.minLength('#password',6),
+                Validator.isRequired('#password_confirmation'),
+                //xu li ham nhap lai password 
+                Validator.isConfirmed('#password_confirmation',function() {
+                    //lay ra value duoc nhap vao cua password
+                    return document.querySelector('#form-1 #password').value;
+                } , 'Mat khau nhap lai khong chinh xac')
+            ]  , 
+            onSubmit: function (data) { 
+                console.log(data);
+            }
+        });
+    </script>
+</body>
+</html>
