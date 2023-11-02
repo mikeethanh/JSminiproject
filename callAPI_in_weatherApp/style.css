@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box; 
+}
+
+body {
+    font-family: sans-serif ;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+
+    background: linear-gradient(to top , rgba(0,0,0,0.8) , rgba(0,0,0,0.6)),url(./Photos/cold.png) no-repeat center/cover
+}
+
+.weather {
+    width: 350px;
+    border-radius: 10px;
+    padding: 30px 20px ;
+    background: url(./Photos/cold.png) no-repeat center/cover;
+}
+
+.searchCity {
+    width: 100%;
+    padding: 10px 20px ;
+    border:none;
+    outline: none;
+    background: rgba(255,255,255,0.3);
+    border-radius: 0px 15px 0 15px;
+    box-shadow: 0 5px 4px rgba(0,0,0,0.4);
+    transition: 0,4s;
+    font-size:19px
+}
+
+.searchCity:focus{
+    background: rgba(255,255,255,0.7);
+    border-radius: 15px 0px 15px 0;
+}
+
+.content {
+    text-align: center;
+    color: white;
+    margin:40px 0;
+}
+
+.capital {
+    text-shadow: 2px 2px rgba(0,0,0,0.5);
+}
+
+.time{
+    margin: 15px 0 ;
+    font-size: 15px;
+    text-align: center;
+}
+
+.temperature {
+    font-size: 65px;
+    text-shadow: 4px 4px rgba(0,0,0,0.7);
+    background: rgba(255,255,255,0.3);
+    box-shadow: 4px 4px rgba(0,0,0,0);
+    border-radius: 10px;
+    margin: 0 30px;
+    padding: 20px ; 
+}
+
+.short-desc {
+    font-size: 30px;
+    font-weight: bold;
+    margin : 30px ; 
+}
+
+.more-desc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-desc div {
+    display: flex;
+    flex-direction:column; 
+    padding : 5px;
+}
+
+.more-desc div i {
+    margin: 5px 0 ; 
+
+}
